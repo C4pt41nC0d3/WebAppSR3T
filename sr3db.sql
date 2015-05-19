@@ -77,6 +77,9 @@ insert into actiontype(name) values
 	("show"),
 	("delete");
 
+/*
+	Advertencia: generar los metadatos con el motor.
+*/
 create table tablenames (
 	id tinyint(2) not null primary key auto_increment,
 	name varchar(20) not null
@@ -106,3 +109,11 @@ create table tracker (
 
 alter table tracker add constraint fk_users0 foreign key tracker (iduser) references users (id) on update cascade on delete cascade;
 alter table tracker add constraint fk_action0 foreign key tracker (idaction) references actions (id) on update cascade on delete cascade;
+
+/*
+	Views
+	name <vw: view><table_name1>_<table_name2>
+*/
+create view vwusers_robots as (
+	select users.id as userid, robots.id as robotid, robots.name as robotname from users, robots where users.id = robots.userid order by users.id
+);
