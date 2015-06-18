@@ -1,0 +1,71 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,900|Roboto+Condensed);
+
+body {
+	background: white;
+}
+
+a:active, a:link, a {
+	text-decoration: none;
+	color: white;
+}
+
+.active {
+	display: block;
+}
+
+.side-menu {
+	background: black;
+	height: 100%;
+	z-index: 1;
+	margin: 80px 0 0 0px;
+	left: -300px;	
+}
+
+.menu-icon {
+	font-size: 25px;
+	font-weight: 900;
+	z-index: 0;
+}
+
+.side-menu, .menu-icon {
+	font-family: "Roboto", sans-serif;
+	position: absolute;
+	background: black;
+	color: white;
+	width: 300px;
+}
+
+.jumbotron {
+	background: #333;
+}
+
+.menu-icon span:hover {
+	cursor:pointer;
+} 
+
+.side-menu ul {
+	list-style: none;
+	margin: 0;
+	width: 100%;
+}
+
+.side-menu ul li {
+	padding: 1em;
+	font-size: 15px;
+	cursor: pointer;
+	display: block;
+	margin: 0 0 0 -40px;
+}
+
+.side-menu ul li:hover {
+	background: #333;
+}
+
+.side-menu .btn-primary {
+	margin: 1em;
+	font-size: 16px;
+}
+
+.menu-icon, .side-menu ul li {
+	padding: 1em;
+}
