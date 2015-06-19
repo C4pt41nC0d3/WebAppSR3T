@@ -1,47 +1,156 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,900|Roboto+Condensed);
-
-body {
-	background: white;
-}
-
 a:active, a:link, a {
 	text-decoration: none;
 	color: white;
 }
 
-.active {
-	display: block;
+/*
+	--Colors--
+	@bbackground
+		-base background
+		-is the background for all the pages
+
+	@morange
+		-monochromatic orange colors.
+
+	@
+
+*/
+
+@bbackground: #000;
+@morange0: #e39100;
+@morange1: #f9ba4b;
+@morange2: #f79e00;
+@morange3: #f2cc88;
+@morange4: #ffa300;
+@darkblue: #2e4752;
+@green: #52ad2a;
+@blackorange: #e0950d;
+@red: #7a0718;
+
+/* general functions */
+.add-border-radius(@size) when(isnumber(@size)){
+	-moz-border-radius: @size;
+	-webkit-border-radius: @size;
+	-o-border-radius: @size;
+	-ie-border-radius: @size;
+	border-radius: @size;
 }
 
+.add-box-shadow(@dy, @dx, @size, @color){
+	box-shadow: @dy @dx @size @color;
+}
+
+/* General styles*/
+
+body {
+	background: @bbackground;
+	color: white;
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+.blogin {
+	background: transparent url(../../img/site/walle.jpg) no-repeat scroll 60% 12%;
+}
+
+header{
+	padding: 1em;
+}
+
+header span {
+	color: white;
+	font-size: 30px;
+}
+
+header span:hover {
+	cursor: pointer;
+}
+
+header h1 {
+	color: @blackorange;
+}
+
+footer {
+	background: @red;
+	padding: 1em;
+}
+
+footer h1 {
+	color: white;
+	font-weight: 400;
+}
+
+.jindex {
+	background: transparent url(../../img/site/jindex.jpg) no-repeat scroll 40% 0%;
+}
+
+.jdev{
+	background: transparent url(../../img/site/jdev.jpg) no-repeat scroll 40% 15%;
+	color: @blackorange;
+}
+
+.jdev p {
+	color: @green;
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.jdev .well {
+	background:black;
+	opacity: 0.8;
+	border:none;
+}
+
+.doc {
+	background: white;
+	padding: 1em;
+}
+
+.doc .nav-pills li a{
+	color: black;
+}
+
+.doc .nav-pills li a:hover{
+	background: @blackorange;
+}
+
+.doc .panel-default > .panel-heading{
+	background: @blackorange;
+}
+
+.doc .panel-default > .panel-body{
+	color: black;
+}
+
+/* side-menu section */
 .side-menu {
-	background: black;
 	height: 100%;
 	z-index: 1;
-	margin: 80px 0 0 0px;
-	left: -300px;	
-}
-
-.menu-icon {
-	font-size: 25px;
-	font-weight: 900;
-	z-index: 0;
-}
-
-.side-menu, .menu-icon {
-	font-family: "Roboto", sans-serif;
-	position: absolute;
+	position: fixed;
 	background: black;
 	color: white;
-	width: 300px;
+	width: 320px;
+	left: -320px;
+	top: 0;
+	@media (max-width: 320px) {
+     	position: absolute;
+     	height: 620px;
+    }	
 }
 
-.jumbotron {
-	background: #333;
+.side-menu .title {
+	font-size: 30px;
+	margin: 1em;
+	font-weight: 900;
 }
 
-.menu-icon span:hover {
-	cursor:pointer;
-} 
+.side-menu .title span:hover {
+	cursor: pointer;
+	color: @red;
+}
 
 .side-menu ul {
 	list-style: none;
@@ -51,14 +160,18 @@ a:active, a:link, a {
 
 .side-menu ul li {
 	padding: 1em;
-	font-size: 15px;
-	cursor: pointer;
 	display: block;
 	margin: 0 0 0 -40px;
+	padding: 1em;
+}
+
+.side-menu ul li, .side-menu .btn {
+	font-size: 15px;
 }
 
 .side-menu ul li:hover {
-	background: #333;
+	background: @blackorange;
+	color: white;
 }
 
 .side-menu .btn-primary {
@@ -66,6 +179,62 @@ a:active, a:link, a {
 	font-size: 16px;
 }
 
-.menu-icon, .side-menu ul li {
+/* char section */ 
+.chars {
+	background: @blackorange;
 	padding: 1em;
+}
+
+.chars .thumbnail {
+	margin: 1em 0 0 0;
+}
+
+.chars .thumbnail h3 {
+	text-align: center;
+}
+
+.chars .thumbnail .well {
+	margin: 1em;
+	background: #efefef;
+	color: black;
+	font-size: 15px;
+}
+
+.chars .thumbnail .btn {
+	margin: 0 0 0 1em;
+}
+
+.chars form {
+	color: black;
+}
+
+/* login */
+.lcontainer {
+	background: black;
+	width: 320px;
+	margin: 1em 0 1em -160px;
+	position: relative;
+	padding: 1em;
+	top: 50%;
+	left: 50%;
+	.add-border-radius(5px);
+
+	@media(max-width: 320px){
+		.add-border-radius(0);
+		margin: 1em 0 0 -160px;
+	}
+}
+
+.lcontainer form input {
+	color: black;
+}
+
+/* forms */
+
+/* mixins */
+
+.side-menu .thumbnail, .chars .thumbnail, .lcontainer .thumbnail {
+	background: transparent;
+	border: none;
+	border-color: none;
 }

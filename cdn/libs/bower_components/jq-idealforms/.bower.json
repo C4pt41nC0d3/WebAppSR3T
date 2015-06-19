@@ -1,0 +1,14 @@
+{
+  "name": "jq-idealforms",
+  "homepage": "https://github.com/elclanrs/jq-idealforms",
+  "_release": "7e14069627",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7e140696278ab9d565cad96a8b35de9d2e1d5a1a"
+  },
+  "_source": "git://github.com/elclanrs/jq-idealforms.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/elclanrs/jq-idealforms",
+  "_direct": true
+}

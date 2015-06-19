@@ -4,29 +4,96 @@
 		<meta charset="utf-8">
 		<meta name="author" content="sr3t development team">
 		<meta name="robots" content="index, follow">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>sr3twebapp | index</title>
 		<link rel="stylesheet" media="all" href="cdn/libs/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet/less" media="all" href="cdn/libs/css3/styles.less">
 	</head>
 	<body>
-		<div class="menu-icon">
-			<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-			SR3TWebApp
-		</div>
+		<header>
+			<div class="page-header">
+				<h1><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> SR3TWebApp  <small>for robots</small></h1>
+			</div>
+		</header>
+		
 		<div class="side-menu">
+			<div class="title">
+				<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Menu
+			</div>
+			<div class="thumbnail">
+				<img src="cdn/img/site/logo.jpg" class="img-circle" width="200" height="200">
+			</div>
 			<ul>
-				<a href="#"><li>Desarrolladores <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>	
-				<a href="#"><li>Contacto <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
-				<a href="#"><li>Desarrolladores <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>	
-				<a href="#"><li>Contacto <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
-				<a href="#"><li>Desarrolladores <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>	
-				<a href="#"><li>Contacto <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
+				<a href="index.html"><li>Inicio <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
+				<a href="developers.html"><li>Desarrolladores <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
+				<a href="about.html"><li>Acerca de la aplicación <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
+				<a href="contact.html"><li>Contacto <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
 			</ul>
-			<a href="#" class="btn btn-primary">Iniciar sesión</a>
+			<a href="login.html" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Iniciar sesión</a>
 		</div>
+		
 		<div class="fluid-container">
-			<div class="jumbotron"></div>
+			<div class="jumbotron jindex">
+				<div class="container">
+					<h1>Inicio</h1>
+					<div class="btn-group">
+						<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Síguenos <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">Facebook</a>
+								<a href="#">Twitter</a>
+								<a href="#">Google +</a>
+								<a href="#">Website</a>
+								<a href="#">Wordpress</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
+		<div class="fluid-container chars">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="cdn/img/site/robot.png" class="img-circle" width="200" height="200">
+						<div class="well">
+							El monitoreo de los robots SR3T es una de las características más releventates,
+							en esta aplicación web.
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="cdn/img/site/graph.png" class="img-circle" width="200" height="200">
+						<div class="well">
+							El muestreo de los datos de los robots SR3T, permite al usuario hacer uso de las
+							variables sensoriales y de posición del robot.
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="cdn/img/site/map.png" class="img-circle" width="200" height="200">
+						<div class="well">
+							La geolocalización de los robots, es una caractertística importante de la aplicación,
+							esto se logra mediante el API de google maps.
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img src="cdn/img/site/framework.png" class="img-circle" width="200" height="200">
+						<div class="well">
+							La arquitectura de esta aplicación, está programada en PHP con el microframework Silex.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<h1>EDSR</h1>
+			<p>EcoDynamics Robotic Systems Corporation | Todos los derechos reservados</p>
+		</footer>
 		<script src="cdn/libs/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="cdn/libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="cdn/libs/bower_components/less/dist/less.min.js"></script>

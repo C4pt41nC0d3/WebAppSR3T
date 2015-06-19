@@ -122,6 +122,7 @@ insert into actions(name, md5hash) select "user-login", md5("user-login{&}{}[%&&
 insert into actions(name, md5hash) select "user-forgot-password", md5("user-forgot-password{&}{}[%&&ñ]{}");
 insert into actions(name, md5hash) select "add-sensor-value", md5("add-sensor-value{&}{}[%&&ñ]{}");
 insert into actions(name, md5hash) select "add-cmpl-value", md5("add-cmpl-value{&}{}[%&&ñ]{}");
+insert into actions(name, md5hash) select "user-contact", md5("user-contact{&}{}[%&&ñ]{}");
 
 #Note: the systracker is from server side
 create table tracker (

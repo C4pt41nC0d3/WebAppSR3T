@@ -1,23 +1,36 @@
 var app = function(){
-	$(".menu-icon .glyphicon-menu-hamburger").click(function(){
+	$(".page-header .glyphicon-menu-hamburger").click(function(){
 		$(".side-menu").animate(
 			{left: 0}, 
-			1000,
-			function(){
-				$(".menu-icon span").removeClass("glyphicon-menu-hamburger");
-				$(".menu-icon span").addClass("glyphicon-remove-sign");
-			}
+			1000
 		);
 	});
-	$(".menu-icon .glyphicon-remove-sign").click(function(){
+	$(".title .glyphicon-remove-sign").click(function(){
 		$(".side-menu").animate(
-			{left: 300}, 
-			1000,
-			function(){
-				$(".menu-icon span").removeClass("glyphicon-remove-sign");
-				$(".menu-icon span").addClass("glyphicon-menu-hamburger");
-			}
+			{left: -320}, 
+			1000
 		);
+	});
+
+	//validate the forms
+	$("#frmcontact").idealforms({
+		/*onSubmit: function(invalid, event){
+			e.preventDefault();
+		},*/
+		rules: {
+			"email": "required email",
+			"msg": "required"
+		}
+	});
+
+	$("#frmlogin").idealforms({
+		/*onSubmit: function(invalid, event){
+			e.preventDefault();
+		},*/
+		rules: {
+			"email": "required email",
+			"pass": "required pass"
+		}
 	});
 };
 
