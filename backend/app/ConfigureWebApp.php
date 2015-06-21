@@ -1,7 +1,7 @@
 <?php
 	//Load Silex Libraries
-	require_once __DIR__."/../modules/vendor/autoload.php";
-	require_once __DIR__."/Drivers.php";
+	require __DIR__."/../modules/vendor/autoload.php";
+	require __DIR__."/Drivers.php";
 	use SR3TWebApp\Drivers\DriverFactory;
 
 	class SystemCodes {
@@ -29,12 +29,23 @@
 			self::$app["debug"] = true; 
 
 			//Configure the service provider
+			//For monolog
 			self::$app->register(new Silex\Provider\MonologServiceProvider(), array(
 				"monolog.logfile" => __DIR__."/$logfile"
 				/*"session.storage.options" => array(
 					"cookie_lifetime" => 3600,
 					"cookie_domain" => "sr3t.com"
 				)*/
+			));
+
+			//For sessions
+			self::$app->register(new Silex\Provider\SessionServiceProvider(), array(
+				"session.storage.save_path" => __DIR__."//sessions//",
+				"session.storage.options" => array(
+					"cookie_lifetime" => 3600,
+					"cookie_path" => __DIR__."//c//",
+					"cookie_domain" => "sr3t.zz.mu"
+				)
 			));
 
 			//Register for configure the database driver
@@ -54,12 +65,11 @@
 				self::$databasedriver,
 				//pdo configuration
 				array(
-					//get one array per row, each with the name of column
-					PDO::FETCH_ASSOC => 0x1,
+					PDO::FETCH_ASSOC => true,
 					//set the scrollable cursor when one element is called
-					PDO::CURSOR_SCROLL => 0x1,
+					PDO::CURSOR_SCROLL => true,
 					//configure one persistent connection never close, but is handled correctly
-					PDO::ATTR_PERSISTENT => 0x1
+					PDO::ATTR_PERSISTENT => true
 				)
 			);
 			SystemCodes::generateCodes(self::$databasehandler);

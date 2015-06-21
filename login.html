@@ -8,6 +8,7 @@
 		<title>sr3twebapp | contacto</title>
 		<link rel="stylesheet" media="all" href="cdn/libs/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="cdn/libs/bower_components/jq-idealforms/css/jquery.idealforms.css">
+		<link rel="stylesheet/less" href="cdn/libs/bower_components/apprisev2/apprise-v2.css">
 		<link rel="stylesheet/less" media="all" href="cdn/libs/css3/styles.less">
 	</head>
 	<body class="blogin">
@@ -30,7 +31,7 @@
 				<a href="about.html"><li>Acerca de la aplicación <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
 				<a href="contact.html"><li>Contacto <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></li></a>
 			</ul>
-			<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Iniciar sesión</a>
+			<a href="login.html" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Iniciar sesión</a>
 		</div>
 		<div class="fluid-container">
 			<div class="lcontainer">
@@ -40,27 +41,29 @@
 				<form class="idealforms" id="frmlogin" novalidate>
 					<div class="field">
 						<label class="main">Email</label>
-						<input type="email" name="email">
+						<input type="email" name="email" class="email" data-idealforms-rules="required email">
 						<span class="error"></span>
 					</div>
 					<div class="field">
 						<label class="main">Contraseña</label>
-						<input type="password" name="pass">
+						<input type="password" name="pass" data-idealforms-rules="required pass">
 						<span class="error"></span>
 					</div>
-					<div class="field"><button type="submit">iniciar sesión</button></div>
+					<div class="field">
+						<button type="submit">iniciar sesión</button>
+					</div>
 				</form>
+				<p class="forgot-pass">Olvidó la contraseña</p>
 			</div>
 		</div>
-		<footer>
-			<h1>EDSR</h1>
-			<p>EcoDynamics Robotic Systems Corporation | Todos los derechos reservados</p>
-		</footer>
 		<script src="cdn/libs/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="cdn/libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="cdn/libs/bower_components/less/dist/less.min.js"></script>
 		<script src="cdn/libs/bower_components/jq-idealforms/js/out/jquery.idealforms.min.js"></script>
 		<script src="cdn/libs/bower_components/jq-idealforms/js/i18n/jquery.idealforms.i18n.es.js"></script>
-		<script src="cdn/libs/js/JQueryApp.js"></script>
+		<script src="cdn/libs/bower_components/apprisev2/apprise-v2.js"></script>
+		<script src="cdn/libs/js/AjaxRequester.js"></script>
+		<script src="cdn/libs/js/jqapp-woajax.js"></script>
+		<script src="cdn/libs/js/jqapp-wajax.js"></script>
 	</body>
 </html>

@@ -34,9 +34,11 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 		//get the code 
 		$rescode = $dbhandler->execQueryAndGetMatrix("select addUser(\"{$request->get("name")}\",\"{$request->get("email")}\",\"{$request->get("pass")}\") as responsehash");
-	  return $app->json(array("responsecode" => $rescode[0]["responsehash"]));
+	  return new Response($app->json(array(
+	  	"responsecode" => $rescode[0]["responsehash"]
+	  )), 201);
 	})->assert("rhash", $reqcodes["add-users"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 		//validate the email, name and md5hash with regexp
 		if(!preg_match("/[a-zA-Z0-9_-]+@[a-zA-z0-9_-]+\.[a-z]+/", $request->get("email")) 
 			|| !preg_match("/[a-zA-Z]+/", $request->get("name"))
@@ -45,7 +47,7 @@
 				"responsecode" => $rescodes["add-user-error"]
 			)), 403);
 	})
-	->after(function(Request $request, Response $response, Application $app){
+	->after(function(Request $request, Response $response, Silex\Application $app){
 		//Tracking the system
 	});
 
@@ -53,27 +55,36 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 
 	})->assert("rhash", $reqcodes["edit-users"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 		
 
 	})
-	->after(function(Request $request, Response $response, Application $app){
+	->after(function(Request $request, Response $response, Silex\Application $app){
 
 	});
 
 	//login users
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
-		
-	})->assert("rhash", $reqcodes["edit-users"])
-	->before(function(Request $request, Application $app){
-		if(!preg_match("/[a-zA-Z0-9_]+@[a-zA-z0-9_-]+\.[a-z]+/", $request->get("email"))
-			|| !preg_match("/[a-f0-9]+/", $request->get("pass")))
+		$email = $request->get('email');	
+		$pass = $request->get('pass');
+
+		$userdata = $dbhandler->execQueryAndGetMatrix("select * from users where email='$email' and md5hash='$pass'");
+		if(isset($userdata[0]["utype"]))
+			return new Response($app->json(array("responsecode" => $rescodes["login-acepted"])), 202);
+
+	  return new Response($app->json(array("responsecode" => $rescodes["login-error"])), 400);
+	})->assert("rhash", $reqcodes["user-login"])
+	->before(function(Request $request, Silex\Application $app) use($rescodes){
+		$email = $request->get("email");
+		$pass = $request->get("pass");
+
+		//Avoid code injection
+		if(!preg_match("/^[a-f0-9]+$/", $pass) or !preg_match("/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+\.[a-z]+$/", $email)){
+			echo("errno");
 			return new Response($app->json(array(
 				"responsecode" => $rescodes["login-error"]
 			)), 403);
-	})
-	->after(function(Request $request, Response $response,  Application $app){
-
+		}
 	});
 
 	//delete users
@@ -96,10 +107,10 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 
 	})->assert("rhash", $reqcodes["add-robots"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 
 	})
-	->after(function(Request $request, Response $response,  Application $app){
+	->after(function(Request $request, Response $response,  SSilex\Application $app){
 
 	});
 
@@ -107,10 +118,10 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 
 	})->assert("rhash", $reqcodes["edit-robots"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 
 	})
-	->after(function(Request $request, Response $response,  Application $app){
+	->after(function(Request $request, Response $response,  Silex\Application $app){
 
 	});
 
@@ -118,10 +129,10 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 
 	})->assert("rhash", $reqcodes["delete-robots"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 
 	})
-	->after(function(Request $request, Response $response,  Application $app){
+	->after(function(Request $request, Response $response,  Silex\Application $app){
 
 	});
 
@@ -135,10 +146,10 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 
 	})->assert("rhash", $reqcodes["add-sensors"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 
 	})
-	->after(function(Request $request, Response $response,  Application $app){
+	->after(function(Request $request, Response $response,  Silex\Application $app){
 
 	});
 
@@ -146,10 +157,10 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 
 	})->assert("rhash", $reqcodes["edit-sensors"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 
 	})
-	->after(function(Request $request, Response $response,  Application $app){
+	->after(function(Request $request, Response $response,  Silex\Application $app){
 
 	});
 
@@ -157,10 +168,10 @@
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 
 	})->assert("rhash", $reqcodes["delete-sensors"])
-	->before(function(Request $request, Application $app){
+	->before(function(Request $request, Silex\Application $app){
 
 	})
-	->after(function(Request $request, Response $response,  Application $app){
+	->after(function(Request $request, Response $response,  Silex\Application $app){
 
 	});
 

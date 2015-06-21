@@ -1,5 +1,11 @@
 CREATE DATABASE  IF NOT EXISTS `sr3tdb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `sr3tdb`;
+-- MySQL dump 10.13  Distrib 5.5.43, for debian-linux-gnu (x86_64)
+--
+-- Host: 127.0.0.1    Database: sr3tdb
+-- ------------------------------------------------------
+-- Server version	5.5.43-0ubuntu0.14.04.1
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -154,7 +160,7 @@ CREATE TABLE `relsensor` (
   KEY `fk_sensor0` (`idsensor`),
   CONSTRAINT `fk_sensor0` FOREIGN KEY (`idsensor`) REFERENCES `sensors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_robot0` FOREIGN KEY (`idrobot`) REFERENCES `robot` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,6 +169,7 @@ CREATE TABLE `relsensor` (
 
 LOCK TABLES `relsensor` WRITE;
 /*!40000 ALTER TABLE `relsensor` DISABLE KEYS */;
+INSERT INTO `relsensor` VALUES (1,1,1),(2,2,1),(3,1,2),(4,2,2);
 /*!40000 ALTER TABLE `relsensor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,7 +193,7 @@ CREATE TABLE `responsecodes` (
 
 LOCK TABLES `responsecodes` WRITE;
 /*!40000 ALTER TABLE `responsecodes` DISABLE KEYS */;
-INSERT INTO `responsecodes` VALUES ('add-cmplval-acepted','7829afd48e65aca6b03e29219e6b1a25'),('add-cmplval-error','f9e3e5d44613257f129b55ccd5fd64c4'),('add-complement-acepted','341867fc0cf2b82ac10e13c2bbb6406f'),('add-complement-error','7021e2a28dd2fd86dcdc78576e8b81cc'),('add-robot-acepted','abe3c63f80dfc3ec8eee2106d31b3b53'),('add-robot-error','5f241ec07f68ff43f5069cbfbfa9b617'),('add-sensor-acepted','4f6bf1b59d92a47797254ef02a18d294'),('add-sensor-error','dfa936c0b01ef96a49cc3f5e9759a0fb'),('add-sensorval-acepted','b5e163071014118de77315873653e069'),('add-sensorval-error','854e71b2758e0c7e5215ef73a64abe87'),('add-user-acepted','539387bd6efcace7b86a33f2ddfd975e'),('add-user-error','c929052a14680b40ee8dc77e71529f34'),('del-complement-acepted','e53db2aec05f42800066e3b50a0c7b56'),('del-complement-error','21b5312c894e0e934467bc70ca17a189'),('del-robot-acepted','39d584135b8d21092780b1c7f7b438c0'),('del-robot-error','bdd49830604525d667ca16f048b7228c'),('del-sensor-acepted','39f35d8b3ca142c8fb425a244cf7d61f'),('del-sensor-error','335a27795c8426dee8f6adaf78dd09b0'),('del-user-acepted','d3f23e518c8e46f4ced4e098de55ee91'),('del-user-error','6947fcdf2643f951d1c7bc8d6f8e400d'),('edit-complement-acepted','bdf19bc9ac13ef9e8753f50a151800d0'),('edit-complement-error','1a7bc911ec3f4df5afe8e323d03ccf5a'),('edit-robot-acepted','be0232127950fc67304cdc2c7c59b636'),('edit-robot-error','ddd86bfe31803715c0f79daa34ce0190'),('edit-sensor-acepted','97bbc91796bdd121f2e14cafba97f393'),('edit-sensor-error','b8be611385ab0244f38697298c17bdaa'),('edit-user-acepted','81cbe5063e6f0765f08ac5849197a3fd'),('edit-user-error','99f48584136cf1c5732637134dcb3df8'),('login-accepted','c908af3c5c30a302a50cf2b0a43e8176'),('login-error','4557e0bef6f9711ee3c416b77acd19a4'),('rcr-acepted','a98647fa26c10d1c3bf0f6618e7fe6fb'),('rcr-error','53adf0df4e74eab024dddf7eb4533b69'),('rsr-acepted','30b67a14a07157e51d8873f856ba1643'),('rsr-error','805cd049495ab7655a1fcfa68eba9110'),('sys-sqli-attack','24e7655789ac622fcf14670181d6eaee'),('user-exists-acepted','7e391bc80369734f9a3186e809095588'),('user-exists-error','9cd2ffaf58d12ccaa88a034040fa7704'),('user-rcode-acepted','b54e0836134a31249cd4f5072696514c'),('user-rcode-error','985aeea191b94391bffe683e594ad232'),('user-tracker-acepted','0b66305db2abe3becd377ecdd0ca0556'),('user-tracker-error','cca527d498165417690f25aed28dc821');
+INSERT INTO `responsecodes` VALUES ('add-cmplval-acepted','7829afd48e65aca6b03e29219e6b1a25'),('add-cmplval-error','f9e3e5d44613257f129b55ccd5fd64c4'),('add-complement-acepted','341867fc0cf2b82ac10e13c2bbb6406f'),('add-complement-error','7021e2a28dd2fd86dcdc78576e8b81cc'),('add-robot-acepted','abe3c63f80dfc3ec8eee2106d31b3b53'),('add-robot-error','5f241ec07f68ff43f5069cbfbfa9b617'),('add-sensor-acepted','4f6bf1b59d92a47797254ef02a18d294'),('add-sensor-error','dfa936c0b01ef96a49cc3f5e9759a0fb'),('add-sensorval-acepted','b5e163071014118de77315873653e069'),('add-sensorval-error','854e71b2758e0c7e5215ef73a64abe87'),('add-user-acepted','539387bd6efcace7b86a33f2ddfd975e'),('add-user-error','c929052a14680b40ee8dc77e71529f34'),('del-complement-acepted','e53db2aec05f42800066e3b50a0c7b56'),('del-complement-error','21b5312c894e0e934467bc70ca17a189'),('del-robot-acepted','39d584135b8d21092780b1c7f7b438c0'),('del-robot-error','bdd49830604525d667ca16f048b7228c'),('del-sensor-acepted','39f35d8b3ca142c8fb425a244cf7d61f'),('del-sensor-error','335a27795c8426dee8f6adaf78dd09b0'),('del-user-acepted','d3f23e518c8e46f4ced4e098de55ee91'),('del-user-error','6947fcdf2643f951d1c7bc8d6f8e400d'),('edit-complement-acepted','bdf19bc9ac13ef9e8753f50a151800d0'),('edit-complement-error','1a7bc911ec3f4df5afe8e323d03ccf5a'),('edit-robot-acepted','be0232127950fc67304cdc2c7c59b636'),('edit-robot-error','ddd86bfe31803715c0f79daa34ce0190'),('edit-sensor-acepted','97bbc91796bdd121f2e14cafba97f393'),('edit-sensor-error','b8be611385ab0244f38697298c17bdaa'),('edit-user-acepted','81cbe5063e6f0765f08ac5849197a3fd'),('edit-user-error','99f48584136cf1c5732637134dcb3df8'),('login-acepted','c908af3c5c30a302a50cf2b0a43e8176'),('login-error','4557e0bef6f9711ee3c416b77acd19a4'),('rcr-acepted','a98647fa26c10d1c3bf0f6618e7fe6fb'),('rcr-error','53adf0df4e74eab024dddf7eb4533b69'),('rsr-acepted','30b67a14a07157e51d8873f856ba1643'),('rsr-error','805cd049495ab7655a1fcfa68eba9110'),('sys-sqli-attack','24e7655789ac622fcf14670181d6eaee'),('user-exists-acepted','7e391bc80369734f9a3186e809095588'),('user-exists-error','9cd2ffaf58d12ccaa88a034040fa7704'),('user-rcode-acepted','b54e0836134a31249cd4f5072696514c'),('user-rcode-error','985aeea191b94391bffe683e594ad232'),('user-tracker-acepted','0b66305db2abe3becd377ecdd0ca0556'),('user-tracker-error','cca527d498165417690f25aed28dc821');
 /*!40000 ALTER TABLE `responsecodes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +211,7 @@ CREATE TABLE `robot` (
   PRIMARY KEY (`id`),
   KEY `fk_users` (`iduser`),
   CONSTRAINT `fk_users` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,6 +220,7 @@ CREATE TABLE `robot` (
 
 LOCK TABLES `robot` WRITE;
 /*!40000 ALTER TABLE `robot` DISABLE KEYS */;
+INSERT INTO `robot` VALUES (1,1,'roboteax'),(2,2,'robot1');
 /*!40000 ALTER TABLE `robot` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +238,7 @@ CREATE TABLE `sensors` (
   `imgurl` varchar(1000) NOT NULL,
   `time` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,6 +247,7 @@ CREATE TABLE `sensors` (
 
 LOCK TABLES `sensors` WRITE;
 /*!40000 ALTER TABLE `sensors` DISABLE KEYS */;
+INSERT INTO `sensors` VALUES (1,'Ultrasonic x82','float','image1.png',10),(2,'Movement x02','int','image21.jpg',2);
 /*!40000 ALTER TABLE `sensors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,6 +286,8 @@ CREATE TABLE `tracker` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `iduser` int(11) NOT NULL,
   `idaction` tinyint(2) NOT NULL,
+  `ipv4` char(15) NOT NULL,
+  `httpuseragent` varchar(100) NOT NULL,
   `_date` date NOT NULL,
   `_hour` time NOT NULL,
   PRIMARY KEY (`id`),
@@ -312,7 +323,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   KEY `fk_utype0` (`utype`),
   CONSTRAINT `fk_utype0` FOREIGN KEY (`utype`) REFERENCES `usertype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,7 +332,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,1,'superrootboss','boss@root.net','66d6e4f737c901ef4076852867b69404');
+INSERT INTO `users` VALUES (1,1,'superrootboss','boss@root.net','cf290eba775110478195de2716e4c9a6'),(2,2,'user0','test@test.com','shduifgiuawhkfuiwgfa'),(3,2,'user1','user1@test.com','igsuiafhjsnfoahfaf');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,6 +406,7 @@ CREATE TABLE `valrelsensor` (
 
 LOCK TABLES `valrelsensor` WRITE;
 /*!40000 ALTER TABLE `valrelsensor` DISABLE KEYS */;
+INSERT INTO `valrelsensor` VALUES (1,'5.6'),(1,'2.5');
 /*!40000 ALTER TABLE `valrelsensor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -477,536 +489,6 @@ SET character_set_client = utf8;
   `value` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
-
---
--- Dumping routines for database 'sr3tdb'
---
-/*!50003 DROP FUNCTION IF EXISTS `addCmpl` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addCmpl`(n varchar(50), dt enum("int","bigint","float","double","string","char","text"), img varchar(100)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="add-complement-error");
-	if not exists(select id from complements where name = n) then
-	begin
-		insert into complements(name, datatype, imgurl) values(n, dt, img);
-		set r = (select md5hash from responsecodes where name="add-complement-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `addCmplVal` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addCmplVal`(cid int, rid int, v text) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="add-cmplval-error");
-	if exists(select idrobot from relcompl where idrobot=rid and idcmpl=cid) then
-	begin
-		
-		
-		insert into valrelcompl select relcompl.id, v from relcompl where relcompl.idcmpl = cid and relcompl.idrobot = rid;
-		set r = (select md5hash from responsecodes where name="add-cmplval-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `addRobot` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addRobot`(uid int, n varchar(45)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="add-robot-error");
-	if not exists(select id from robot where iduser=uid and name=n) then
-		insert into robot(iduser, name) values(uid, n);
-		set r = (select md5hash from responsecodes where name="add-robot-acepted");
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `addSensor` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addSensor`(n varchar(50), dt enum("int","bigint","float","double","string","char","text"), img varchar(100), t float) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="add-sensor-error");
-	if not exists(select id from sensors where name=n) then
-	begin
-		insert into sensors(name, datatype, imgurl, time) values(n, dt, img, t);
-		set r = (select md5hash from responsecodes where name="add-sensor-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `addSensorVal` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addSensorVal`(rid int, sid int, v text) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="add-sensorval-error");
-
-	if exists(select idrobot from relsensor where idrobot=rid and idsensor=sid) then
-	begin
-		
-		
-		insert into valrelsensor select relsensor.id, v from relsensor where relsensor.idrobot = rid and relsensor.idsensor = sid;
-		set r = (select md5hash from responsecodes where name="add-sensorval-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `addUser` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addUser`(n varchar(40), e varchar(30), m5h char(32)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="add-user-error");
-	if not exists(select id from users where email=e) then
-	begin
-		insert into users(name, email, md5hash) values(n, e, m5h);
-		set r = (select md5hash from responsecodes where name="add-user-acepted");
-	end; end if;
-  return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `chUsrPass` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `chUsrPass`(rcode char(32), pm5h char(32)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="user-rcode-error");
-	if exists(select feedback from forgotaccount where requestcode = rcode) then
-	begin
-		declare uid int default (
-			
-			select userid from forgotaccount where requestcode=rcode
-		);
-		
-		update users set md5hash=pm5h where id = uid;
-		
-		update forgotaccount set feedback=1 where responsecode=rcode;
-		set r = (select md5hash from responsecodes where name="user-rcode-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `delCmpl` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `delCmpl`(cid int) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="del-complement-error");
-	if exists(select id from complements where id=cid) then
-	begin
-		delete from complements where id=cid;
-		set r = (select md5hash from responsecodes where name="del-complement-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `delRobot` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `delRobot`(rid int) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="del-robot-error");
-	if exists(select id from robot where id=rid) then
-	begin
-		delete from robot where id=rid;
-		set r = (select md5hash from responsecodes where name="del-robot-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `delSensor` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `delSensor`(sid int) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="del-sensor-error");
-	if exists(select id from sensors where id=sid) then
-	begin
-		update sensors set name=n, datatype = dt, imgurl = img, time = t where id=sid;
-		set r = (select md5hash from responsecodes where name="del-sensor-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `delUser` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `delUser`(i int) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="del-user-error");
-	if exists(select id from users where id=i and utype=2) then
-	begin
-		delete from users where id=i;
-		set r = (select md5hash from responsecodes where name="del-user-acepted");
-	end;
-	end if;
-	return r;
- end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `editCmpl` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `editCmpl`(cid int, n varchar(50), dt enum("int","bigint","float","double","string","char","text"), img varchar(100)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="edit-complement-error");
-	if exists(select id from complements where id=cid) then
-	begin
-		update complements set name=n, datatype=dt, imgurl=img where id=cid;
-		set r = (select md5hash from responsecodes where name="edit-complement-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `editRobot` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `editRobot`(rid int, uid int, n varchar(45)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="edit-robot-error");
-	if exists(select id from robot where id=rid and iduser=uid) then
-	begin
-		update robot set name=n where id=rid;
-		set r = (select md5hash from responsecodes where name="edit-robot-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `editSensor` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `editSensor`(sid int, n varchar(50), dt enum("int","bigint","float","double","string","char","text"), img varchar(100), t float) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="edit-sensor-error");
-	if exists(select id from sensors where id=sid) then
-	begin
-		update sensors set name=n, datatype = dt, imgurl = img, time = t where id=sid;
-		set r = (select md5hash from responsecodes where name="edit-sensor-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `editUser` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `editUser`(i int, n varchar(40), e varchar(30), m5h char(32)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="edit-user-error");
-	if exists(select id from users where id=i) then
-	begin
-		update users set name=n, email=e, md5hash=m5h where id=i;
-		set r = (select md5hash from responsecodes where name="edit-user-acepted");
-	end;
-	end if;
-	return r;
- end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `refCmplToRobot` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `refCmplToRobot`(cid int, rid int) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="rcr-error");
-	if exists(select id from complements where id=cid) and exists(select id from robot where id=rid) then
-	begin
-		insert into relcompl(idrobot, idcmpl) values(rid, cid);
-		set r = (select md5hash from responsecodes where name="rcr-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `refSensorToRobot` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `refSensorToRobot`(sid int, rid int) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="rsr-error");
-	if exists(select id from sensors where id=sid) and exists(select id from robot where id=rid) then
-	begin
-		insert into relsensor(idrobot, idsensor) values(sid, rid);
-		set r = (select md5hash from responsecodes where name="rsr-acepted");
-	end;
-	end if;
-	return r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `regForgotAccount` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `regForgotAccount`(e varchar(30)) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from responsecodes where name="user-exists-error");
-	if exists(select id from users where email=e) then
-	begin
-		insert into forgotaccount(userid, requestcode) select users.id, md5(concat(floor(rand()*10273), "$<%#$<(/K1)<=)>"));
-		set r = (select md5hash from response where name="user-exists-acepted");
-	end;
-	end if;
-	return  r;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `systemTracking` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `systemTracking`(uid int, aid int) RETURNS char(32) CHARSET latin1
-begin
-	declare r char(32) default (select md5hash from actions where name="user-tracker-error");
-	if exists(select id from users where id=uid) and exists(select id from actions where id=aid) then
-		begin
-			insert into tracker(iduser, idaction, _date, _hour) select uid, aid, curdate(), curtime();
-			set r = (select md5hash from actions where name="user-tracker-acepted");
-		end;
-		return r;
-	end if;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `userLogin` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `userLogin`(e varchar(30), m5h char(32)) RETURNS char(32) CHARSET latin1
-begin
- 	declare r char(32) default (select md5hash from responsecodes where name="login-error");
-	if exists(select id from users where email=e and md5hash=m5h) then
-		set r = (select md5hash from responsecodes where name="login-accepted");
-	end if;
-	return r;
- end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Final view structure for view `viewComplementsByRobots`
@@ -1112,3 +594,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Dump completed on 2015-06-21  8:14:44

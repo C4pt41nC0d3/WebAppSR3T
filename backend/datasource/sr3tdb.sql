@@ -7,7 +7,7 @@ use sr3tdb;
 	
 	Root account
 	user:boss@root.net
-	password: root$3#01
+	password: root$3#01ZZ
 */
 
 create table usertype (
@@ -26,7 +26,7 @@ create table users (
 	email varchar(30) not null,
 	md5hash char(32) not null
 );
-insert into users(utype, name, email, md5hash) values(1, "superrootboss","boss@root.net", "66d6e4f737c901ef4076852867b69404");
+insert into users(utype, name, email, md5hash) values(1, "superrootboss","boss@root.net", "cf290eba775110478195de2716e4c9a6");
 
 alter table users add constraint fk_utype0 foreign key users (utype) references usertype (id) on update cascade on delete cascade;
 
@@ -129,6 +129,8 @@ create table tracker (
 	id bigint not null primary key auto_increment,
 	iduser int not null,
 	idaction tinyint(2) not null,
+	ipv4 char(15) not null,
+	httpuseragent varchar(100) not null,
 	_date date not null,
 	_hour time not null
 );
@@ -143,7 +145,7 @@ create table responsecodes (
 );
 
 #response codes for users
-insert into responsecodes select "login-accepted", md5("login-accepted{&}{}[%&&ñ]{}");
+insert into responsecodes select "login-acepted", md5("login-accepted{&}{}[%&&ñ]{}");
 insert into responsecodes select "login-error", md5("login-error{&}{}[%&&ñ]{}");
 insert into responsecodes select "add-user-acepted", md5("add-user-acepted{&}{}[%&&ñ]{}");
 insert into responsecodes select "add-user-error", md5("add-user-error{&}{}[%&&ñ]{}");

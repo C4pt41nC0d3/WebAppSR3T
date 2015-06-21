@@ -76,6 +76,7 @@ header h1 {
 footer {
 	background: @red;
 	padding: 1em;
+	width: 100%;
 }
 
 footer h1 {
@@ -225,8 +226,22 @@ footer h1 {
 	}
 }
 
-.lcontainer form input {
+.lcontainer form input, .lcontainer .well {
 	color: black;
+}
+
+.lcontainer .well .ptext {
+	text-align: center;
+}
+
+.lcontainer p {
+	text-align: right;
+	padding: 0;
+	margin: 0;
+}
+
+.lcontainer .forgot-pass:hover {
+	cursor: pointer;
 }
 
 /* forms */
@@ -238,3 +253,9 @@ footer h1 {
 	border: none;
 	border-color: none;
 }
+
+.apprise-alerts img {
+	width: 100px;
+	height: 100px;
+}
+

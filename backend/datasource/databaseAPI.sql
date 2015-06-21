@@ -6,12 +6,12 @@ use sr3tdb;
 
 delimiter //
 #function for systemTracking
-create function systemTracking(uid int, aid int) returns char(32)
+create function systemTracking(uid int, ip char(15), ua varchar(100), aid int) returns char(32)
 begin
 	declare r char(32) default (select md5hash from actions where name="user-tracker-error");
 	if exists(select id from users where id=uid) and exists(select id from actions where id=aid) then
 		begin
-			insert into tracker(iduser, idaction, _date, _hour) select uid, aid, curdate(), curtime();
+			insert into tracker(iduser, idaction, ipv4, httpuseragent, _date, _hour) select uid, aid, ip, ua, curdate(), curtime();
 			set r = (select md5hash from actions where name="user-tracker-acepted");
 		end;
 		return r;

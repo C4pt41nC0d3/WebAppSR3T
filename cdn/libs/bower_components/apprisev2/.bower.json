@@ -1,0 +1,14 @@
+{
+  "name": "Apprise-v2",
+  "homepage": "https://github.com/ThrivingKings/Apprise-v2",
+  "_release": "3e90fc708b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "3e90fc708b2bebc77320dfc0ed1c9cc746bcdbc7"
+  },
+  "_source": "git://github.com/ThrivingKings/Apprise-v2.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/ThrivingKings/Apprise-v2",
+  "_direct": true
+}
