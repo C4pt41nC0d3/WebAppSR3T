@@ -15,11 +15,11 @@ Los archivos de configuración son de gran importancia para la presente aplicaci
 #Instalación y configuración
 ##Linux y Mac OSx
 
-	Para instalar el origen de datos en linux y Mac OSx, solamente se ejecuta el script init.sh [ruta: backend/datasource/init.sh] en la terminal.
+Para instalar el origen de datos en linux y Mac OSx, solamente se ejecuta el script init.sh [ruta: backend/datasource/init.sh] en la terminal.
 
 	user@host~$./init.sh
 
-	Este script crea las funciones, vistas, tablas, además de crear un test unitario, en el cual se prueba toda la base de datos.
+Este script crea las funciones, vistas, tablas, además de crear un test unitario, en el cual se prueba toda la base de datos.
 
 	Instalando el origen de datos desde comandos:
 	
@@ -34,7 +34,9 @@ Los archivos de configuración son de gran importancia para la presente aplicaci
 	
 ##Windows
 
-	Para intalar el origen de datos en Windows, solamente se restaura en el servidor mysql correspondiente.
+Para intalar el origen de datos en Windows, solamente se restaura en el servidor mysql correspondiente.
+
+
 
 # Desarrolladores
 
