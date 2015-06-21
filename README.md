@@ -99,7 +99,7 @@ Versión 0.1
 
 # Desarrolladores
 
-1. <De Santiago Ruiz Diego Alberto/> [developerdiego0@gmail.com].
-2. <Izquierdo Morales Alfredo./>
-3. <Becerra Rodríguez Diego./> 
-4. <Rodríguez Ávalos Gustavo./>
+1. De Santiago Ruiz Diego Alberto.
+2. Izquierdo Morales Alfredo.
+3. Becerra Rodríguez Diego.
+4. Rodríguez Ávalos Gustavo.
