@@ -282,17 +282,17 @@ function md5(str) {
 }
 
 function AjaxRequester(){}
-AjaxRequester.prototype.host = "http://sr3twebapp.zz.mu/";
+AjaxRequester.prototype.host = "http://127.0.0.1/sr3twebapp/";
+
 AjaxRequester.prototype.serializeObject = function(formobject){
   if(typeof formobject === "object"){
     var fieldsobject = {}, 
-      fieldsarray = $("#frmlogin").serializeArray();
+      fieldsarray = formobject.serializeArray();
 
       $.each(fieldsarray, function(){
         if(fieldsobject[this.name] !== undefined){
-          if(!fieldsobject[this.name].push){
+          if(!fieldsobject[this.name].push)
             fieldsobject[this.name] = [fieldsobject[this.name]];
-          }
           fieldsobject[this.name].push(this.value || '');
         }
         else 
@@ -305,7 +305,19 @@ AjaxRequester.prototype.serializeObject = function(formobject){
 //Codes for errors
 AjaxRequester.prototype.http_status_codes = {
   400: function(){
-
+    ajaxrequester.showAppriseAlert(
+      "cdn/img/site/hacker.jpg", 
+      "danger", "<b>Error!</b> Porfavor escribe de manera correcta en los campos del formulario en el cual quieres enviar los datos.", {
+        buttons: {
+          confirm:  {
+            text: "Cerrar",
+            className: "blue", 
+            action: function(e){
+              Apprise("close");
+            }
+          }
+        }
+      });
   },
 	404: function(){
 
@@ -388,7 +400,7 @@ Register.prototype.push = function(modulename, controller){
 	else return 0x0;
 }
 
-Register.prototype.popModuleByName = function(modulename){
+Register.prototype.pop = function(modulename){
 	if(typeof this.modules[modulename] === "function"){
 		delete this.modules[modulename];
 	  return 0x1;
@@ -396,7 +408,14 @@ Register.prototype.popModuleByName = function(modulename){
 	else return 0x0;
 }
 
+Register.prototype.get = function(modulename){
+  if(typeof modulename === "string" && this.modules[modulename] != undefined)
+    return this.modules[modulename];
+  else return 0x0;
+}
+
 //Iterator
+/*
 function Iterator(){}
 
 Iterator.prototype.init = function(object, handler){
@@ -420,20 +439,82 @@ Iterator.prototype.getCurrent = function(){
 	if(this.isInBounds(this.position))
 		return this.object[this.position];
 	else return "IBE";
-}
+}*/
 
 var register = new Register();
 //Dependency injection, use the register as service
+
+//Callbacks for login
 register.push(
-	"add", 
-	function(a, b){
-		return a+b;
-});
+  "login.before",
+  function(jqXHR, settings){
+
+  }
+);
+
 register.push(
-	"dec",
-	function(a, b){
-		return a-b;
-});
+  "login.complete",
+  function(jqXHR, status){
+
+  }
+);
+
+register.push(
+  "login.error",
+  function(jqXHR, textstatus, errorthrown){
+    $("<div class='alert alert-danger' role='alert'><b>Oops!</b> El servidor no puede responder de manera adecuada a la transacción que se envió.</div>").appendTo(".lcontainer");
+  }
+);
+
+register.push(
+  "login.success",
+  function(returneddata, textstatus, jqXHR){
+    if(returneddata.responsecode === "c908af3c5c30a302a50cf2b0a43e8176"){
+      $("<div class='alert alert-success' role='alert'><b>Información!</b> Las credenciales son correctas, redireccionando.</div>").appendTo(".lcontainer");
+      $("<div class='well'><div class='progress'><div class='progress-bar progress-bar-warning progress-bar-striped' role='progressbar' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100' style='width:0%'><span class='sr-only'> 50% Complete</span></div></div><p class='ptext'>Redireccionando</p></div>").appendTo(".lcontainer");
+      $(".lcontainer .progress-bar").animate(
+        {width: "100%"}, 
+        4000,
+        function(){
+          //setTimeout(location.href="8e3422915ad5e4608226b7e9d8cdfee1.php", 1000);
+        }
+      );
+    }         
+  }
+);
+
+//callbacks for users
+
+register.push(
+  "users.before",
+  function(jqXHR, settings){
+
+  }
+);
+
+register.push(
+  "users.complete",
+  function(jqXHR, status){
+
+  }
+);
+
+register.push(
+  "users.error",
+  function(jqXHR, textstatus, errorthrown){
+
+  }
+);
+
+register.push(
+  "users.success",
+  function(returneddata, textstatus, jqXHR){
+    if(returneddata.responsecode === "539387bd6efcace7b86a33f2ddfd975e")
+      $("<div class='alert alert-success' role='alert'><b>Información!</b> Se añadió un usuario a la base de datos.</div>").appendTo(".users");
+  }
+) 
+
+
 
 /*
 --Example of one iterator--

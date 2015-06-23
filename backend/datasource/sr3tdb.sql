@@ -123,6 +123,7 @@ insert into actions(name, md5hash) select "user-forgot-password", md5("user-forg
 insert into actions(name, md5hash) select "add-sensor-value", md5("add-sensor-value{&}{}[%&&ñ]{}");
 insert into actions(name, md5hash) select "add-cmpl-value", md5("add-cmpl-value{&}{}[%&&ñ]{}");
 insert into actions(name, md5hash) select "user-contact", md5("user-contact{&}{}[%&&ñ]{}");
+insert into actions(name, md5hash) select "get-session-info", md5("get-session-info{&}{}[%&&ñ]{}");
 
 #Note: the systracker is from server side
 create table tracker (
@@ -196,7 +197,11 @@ insert into responsecodes select "user-rcode-error", md5("user-rcode-error{&}{}[
 insert into responsecodes select "user-rcode-acepted", md5("user-rcode-acepted{&}{}[%&&ñ]{}");
 
 #response codes for system attacks
-insert into responsecodes select "sys-sqli-attack", md5("sys-sqli-attack");
+insert into responsecodes select "sys-sqli-attack", md5("sys-sqli-attack{&}{}[%&&ñ]{}");
+
+#response codes for login
+insert into responsecodes select "get-user-info-acepted", md5("get-user-info-acepted{&}{}[%&&ñ]{}");
+insert into responsecodes select "get-user-info-error", md5("get-user-info-error{&}{}[%&&ñ]{}"); 
 
 create table forgotaccount (
 	userid int not null,

@@ -30,25 +30,25 @@
 		return $app->json($dbhandler->execQueryAndGetMatrix("select * from users"));
 	})->assert("rhash", $reqcodes["show-users"]);
 
-	//add users
+	//add users [aprovado]
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
+		$uname = $request->get("uname");
+		$email = $request->get("email");
+		$pass = $request->get("pass");
 		//get the code 
-		$rescode = $dbhandler->execQueryAndGetMatrix("select addUser(\"{$request->get("name")}\",\"{$request->get("email")}\",\"{$request->get("pass")}\") as responsehash");
-	  return new Response($app->json(array(
-	  	"responsecode" => $rescode[0]["responsehash"]
-	  )), 201);
+		$rescode = $dbhandler->execQueryAndGetMatrix("select addUser('".$uname."','".$email."','".$pass."') as responsehash")[0]["responsehash"];
+		if($rescode === $rescodes["add-user-acepted"])
+			return new JsonResponse(array("responsecode" => $rescode), 201);
+
+	  return new JsonResponse(array("responsecode" => $rescode), 400);
 	})->assert("rhash", $reqcodes["add-users"])
-	->before(function(Request $request, Silex\Application $app){
-		//validate the email, name and md5hash with regexp
-		if(!preg_match("/[a-zA-Z0-9_-]+@[a-zA-z0-9_-]+\.[a-z]+/", $request->get("email")) 
-			|| !preg_match("/[a-zA-Z]+/", $request->get("name"))
-			|| !preg_match("/[a-f0-9]+/", $request->get("pass")))
-			return new Response($app->json(array(
-				"responsecode" => $rescodes["add-user-error"]
-			)), 403);
-	})
-	->after(function(Request $request, Response $response, Silex\Application $app){
-		//Tracking the system
+	->before(function(Request $request, Silex\Application $app) use($rescodes){
+		if(!preg_match("/^[a-zA-Z]?[a-zA-Z0-9]+$/", $request->get("uname")) 
+			or !preg_match("/^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+\.[a-z]+$/", $request->get("email"))
+			or !preg_match("/^[a-z0-9]+$/", $request->get("pass"))){
+			$app["monolog"]->addWarning("APIRest: SQLi code execution.");
+			return new JsonResponse(array("responsecode" => $rescodes["sys-sqli-attack"]), 403);
+		}
 	});
 
 	//edit users
@@ -63,16 +63,39 @@
 
 	});
 
-	//login users
+	//login users [aprovado]
 	$app->post("/r/{rhash}", function(Request $request) use($app, $rescodes, $dbhandler){
 		$email = $request->get('email');	
 		$pass = $request->get('pass');
 
 		$userdata = $dbhandler->execQueryAndGetMatrix("select * from users where email='$email' and md5hash='$pass'");
-		if(isset($userdata[0]["utype"]))
-			return new Response($app->json(array("responsecode" => $rescodes["login-acepted"])), 202);
 
-	  return new Response($app->json(array("responsecode" => $rescodes["login-error"])), 400);
+		//Check if the user exists
+		if(isset($userdata[0]["utype"])){
+			//Convert the matrix into one array
+			$userdata = $userdata[0];
+			/*
+			$app["session"]->set(
+				"userdata",
+				array(
+					"id" => $userdata["id"],
+					"name" => $userdata["name"],
+					"email" => $userdata["email"],
+					"hash" => $userdata["md5hash"]
+				)
+			);*/
+
+			//store the data in session vars
+			
+			/*if($userdata["utype"] == 1)
+			else if($userdata["utype"] == 2)
+				$app["session.storage.handler"]->setName("guest");
+			else $app["monolog"]->addError("APIRest: User type unknown");*/
+			
+			return new JsonResponse(array("responsecode" => $rescodes["login-acepted"]), 202);
+		}
+
+	  return new JsonResponse(array("responsecode" => $rescodes["login-error"]), 400);
 	})->assert("rhash", $reqcodes["user-login"])
 	->before(function(Request $request, Silex\Application $app) use($rescodes){
 		$email = $request->get("email");
@@ -80,10 +103,8 @@
 
 		//Avoid code injection
 		if(!preg_match("/^[a-f0-9]+$/", $pass) or !preg_match("/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+\.[a-z]+$/", $email)){
-			echo("errno");
-			return new Response($app->json(array(
-				"responsecode" => $rescodes["login-error"]
-			)), 403);
+			$app["monolog"]->addWarning("APIRest: SQLi code execution.");
+			return new JsonResponse(array("responsecode" => $rescodes["sys-sqli-attack"]), 403);
 		}
 	});
 
